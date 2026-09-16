@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:provider_firebase_app/screens/home_screen.dart';
 import 'package:provider_firebase_app/services/auth_service.dart';
 import 'firebase_options.dart';
 import 'screens/auth_screen.dart';
@@ -34,11 +35,7 @@ class MyApp extends StatelessWidget {
       home: Consumer<AuthService>(
         builder: (context, authService, child) {
           if (authService.isAuthenticated) {
-            return const Scaffold(
-              body: Center(
-                child: Text('Authenticated'),
-              ),
-            );
+            return const HomeScreen();
           }
 
           return const AuthScreen();
