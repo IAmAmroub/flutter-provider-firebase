@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:provider_firebase_app/screens/home_screen.dart';
 import 'package:provider_firebase_app/services/auth_service.dart';
 import 'firebase_options.dart';
+import 'repositories/asset_repository.dart';
 import 'screens/auth_screen.dart';
 
 void main() async {
@@ -18,7 +19,10 @@ void main() async {
       providers: [
         ChangeNotifierProvider(
           create: (_) => AuthService(),
-        )
+        ),
+        ChangeNotifierProvider(
+          create: (_) => AssetRepository(),
+        ),
       ],
       child: const MyApp(),
     ),
